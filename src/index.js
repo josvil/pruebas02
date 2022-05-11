@@ -1,13 +1,19 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
+import React from "react";
+import ReactDOM from "react-dom";
 
-import App from "./App";
+const App = () => {
+  const now = new Date();
+  const a = 10;
+  const b = 20;
+  return React.createElement(
+    "div",
+    null,
+    React.createElement("p", null, "Hello world, it is ", now.toString()),
+    React.createElement("p", null, a, " plus ", b, " is ", a + b)
+  );
+};
 
-const rootElement = document.getElementById("root");
-const root = createRoot(rootElement);
-
-root.render(
-  <StrictMode>
-    <App />
-  </StrictMode>
+ReactDOM.render(
+  React.createElement(App, null),
+  document.getElementById("root")
 );
