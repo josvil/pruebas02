@@ -1,19 +1,27 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-const App = () => {
-  const now = new Date();
-  const a = 10;
-  const b = 20;
-  return React.createElement(
-    "div",
-    null,
-    React.createElement("p", null, "Hello world, it is ", now.toString()),
-    React.createElement("p", null, a, " plus ", b, " is ", a + b)
+const Hello = (props) => {
+  return (
+    <div>
+      <p>
+        Hola {props.name} tu edad es {props.age}
+      </p>
+    </div>
   );
 };
 
-ReactDOM.render(
-  React.createElement(App, null),
-  document.getElementById("root")
-);
+const App = () => {
+  const name = "Maria";
+  const age = "10";
+  return (
+    <div>
+      <h1>Greetings</h1>
+      <Hello name="Jose" />
+      <Hello name="Sofia" />
+      <Hello name={name} age={age} />
+    </div>
+  );
+};
+
+ReactDOM.render(<App />, document.getElementById("root"));
