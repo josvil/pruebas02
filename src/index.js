@@ -1,13 +1,27 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
+import React from "react";
+import ReactDOM from "react-dom";
 
-import App from "./App";
+const Hello = (props) => {
+  return (
+    <div>
+      <p>
+        Hola {props.name} tu edad es {props.age}
+      </p>
+    </div>
+  );
+};
 
-const rootElement = document.getElementById("root");
-const root = createRoot(rootElement);
+const App = () => {
+  const name = "Maria";
+  const age = "10";
+  return (
+    <div>
+      <h1>Greetings</h1>
+      <Hello name="Jose" />
+      <Hello name="Sofia" />
+      <Hello name={name} age={age} />
+    </div>
+  );
+};
 
-root.render(
-  <StrictMode>
-    <App />
-  </StrictMode>
-);
+ReactDOM.render(<App />, document.getElementById("root"));
